@@ -1,0 +1,2 @@
+,name,age,is_student,grades,courses
+0,Alice,28,False,"[88, 92, 75, 85]","{'math': 'A', 'science': 'B+', 'history': 'A-'}"

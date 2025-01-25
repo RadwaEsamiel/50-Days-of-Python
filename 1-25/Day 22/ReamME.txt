@@ -1,0 +1,19 @@
+This Pong game is a simple yet engaging implementation of the classic arcade game using Python's turtle module. The game features two paddles, controlled by two players, and a ball that bounces between them. The objective is to prevent the ball from passing your paddle while trying to score points by making the ball go past your opponent’s paddle.
+
+Two Player Controls: Players can control their paddles using the keyboard. The right paddle is controlled using the "Up" and "Down" arrow keys, while the left paddle uses the "W" and "S" keys for upward and downward movement, respectively.
+
+Dynamic Scoring: The game tracks the scores of both players in real-time. Points are awarded when the opposing player fails to return the ball.
+
+Ball Movement: The ball moves continuously across the screen and bounces off the top and bottom walls, as well as the paddles. The ball resets to the center after a score is made.
+
+Collision Detection: The game includes simple collision detection logic that allows the ball to bounce off the paddles and walls, enhancing the gameplay experience.
+
+Components
+
+Main Game Logic: This component initializes the game screen, sets up paddles, and controls the main game loop where the ball moves, scores are updated, and user inputs are processed.
+
+Paddle Class: Defines the paddles' properties and movement. Each paddle is created at specific positions on the left and right sides of the screen and can move up and down within set boundaries.
+
+Ball Class: Manages the ball's movement and bouncing mechanics. It controls how the ball interacts with the paddles and walls, as well as its position resets when a player scores.
+
+Score Class: Keeps track of the players' scores and updates the displayed score on the screen.

@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<!-- saved from url=(0143)https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Maze&url=worlds%2Ftutorial_en%2Fmaze1.json -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.blocklyDraggable {}
+.blocklySvg {
+background-color: #fff;
+outline: none;
+overflow: hidden;
+position: absolute;
+display: block;
+}
+.blocklyWidgetDiv {
+display: none;
+position: absolute;
+z-index: 99999;
+}
+.injectionDiv {
+height: 100%;
+position: relative;
+overflow: hidden;
+touch-action: none
+}
+.blocklyNonSelectable {
+user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-webkit-user-select: none;
+}
+.blocklyWsDragSurface {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+}
+.blocklyWsDragSurface.blocklyOverflowVisible {
+overflow: visible;
+}
+.blocklyBlockDragSurface {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+overflow: visible !important;
+z-index: 50;
+}
+.blocklyTooltipDiv {
+background-color: #ffffc7;
+border: 1px solid #ddc;
+box-shadow: 4px 4px 20px 1px rgba(0,0,0,.15);
+color: #000;
+display: none;
+font-family: sans-serif;
+font-size: 9pt;
+opacity: .9;
+padding: 2px;
+position: absolute;
+z-index: 100000;
+}
+.blocklyResizeSE {
+cursor: se-resize;
+fill: #aaa;
+}
+.blocklyResizeSW {
+cursor: sw-resize;
+fill: #aaa;
+}
+.blocklyResizeLine {
+stroke: #515A5A;
+stroke-width: 1;
+}
+.blocklyHighlightedConnectionPath {
+fill: none;
+stroke: #fc3;
+stroke-width: 4px;
+}
+.blocklyPathLight {
+fill: none;
+stroke-linecap: round;
+stroke-width: 1;
+}
+.blocklySelected>.blocklyPath {
+stroke: #fc3;
+stroke-width: 3px;
+}
+.blocklySelected>.blocklyPathLight {
+display: none;
+}
+.blocklyDraggable {
+cursor: url("https://blockly-demo.appspot.com/static/media/handopen.cur"), auto;
+cursor: grab;
+cursor: -webkit-grab;
+}
+.blocklyDragging {
+cursor: url("https://blockly-demo.appspot.com/static/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyDraggable:active {
+cursor: url("https://blockly-demo.appspot.com/static/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyBlockDragSurface .blocklyDraggable {
+cursor: url("https://blockly-demo.appspot.com/static/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyDragging.blocklyDraggingDelete {
+cursor: url("https://blockly-demo.appspot.com/static/media/handdelete.cur"), auto;
+}
+.blocklyToolboxDelete {
+cursor: url("https://blockly-demo.appspot.com/static/media/handdelete.cur"), auto;
+}
+.blocklyToolboxGrab {
+cursor: url("https://blockly-demo.appspot.com/static/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyDragging>.blocklyPath,
+.blocklyDragging>.blocklyPathLight {
+fill-opacity: .8;
+stroke-opacity: .8;
+}
+.blocklyDragging>.blocklyPathDark {
+display: none;
+}
+.blocklyDisabled>.blocklyPath {
+fill-opacity: .5;
+stroke-opacity: .5;
+}
+.blocklyDisabled>.blocklyPathLight,
+.blocklyDisabled>.blocklyPathDark {
+display: none;
+}
+.blocklyText {
+cursor: default;
+fill: #fff;
+font-family: sans-serif;
+font-size: 11pt;
+}
+.blocklyNonEditableText>text {
+pointer-events: none;
+}
+.blocklyNonEditableText>rect,
+.blocklyEditableText>rect {
+fill: #fff;
+fill-opacity: .6;
+}
+.blocklyNonEditableText>text,
+.blocklyEditableText>text {
+fill: #000;
+}
+.blocklyEditableText:hover>rect {
+stroke: #fff;
+stroke-width: 2;
+}
+.blocklyBubbleText {
+fill: #000;
+}
+.blocklyFlyout {
+position: absolute;
+z-index: 20;
+}
+.blocklyFlyoutButton {
+fill: #888;
+cursor: default;
+}
+.blocklyFlyoutButtonShadow {
+fill: #666;
+}
+.blocklyFlyoutButton:hover {
+fill: #aaa;
+}
+.blocklyFlyoutLabel {
+cursor: default;
+}
+.blocklyFlyoutLabelBackground {
+opacity: 0;
+}
+.blocklyFlyoutLabelText {
+fill: #000;
+}
+.blocklySvg text, .blocklyBlockDragSurface text {
+user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-webkit-user-select: none;
+cursor: inherit;
+}
+.blocklyHidden {
+display: none;
+}
+.blocklyFieldDropdown:not(.blocklyHidden) {
+display: block;
+}
+.blocklyIconGroup {
+cursor: default;
+}
+.blocklyIconGroup:not(:hover),
+.blocklyIconGroupReadonly {
+opacity: .6;
+}
+.blocklyIconShape {
+fill: #00f;
+stroke: #fff;
+stroke-width: 1px;
+}
+.blocklyIconSymbol {
+fill: #fff;
+}
+.blocklyMinimalBody {
+margin: 0;
+padding: 0;
+}
+.blocklyCommentForeignObject {
+position: relative;
+z-index: 0;
+}
+.blocklyCommentRect {
+fill: #E7DE8E;
+stroke: #bcA903;
+stroke-width: 1px
+}
+.blocklyCommentTarget {
+fill: transparent;
+stroke: #bcA903;
+}
+.blocklyCommentTargetFocused {
+fill: none;
+}
+.blocklyCommentHandleTarget {
+fill: none;
+}
+.blocklyCommentHandleTargetFocused {
+fill: transparent;
+}
+.blocklyFocused>.blocklyCommentRect {
+fill: #B9B272;
+stroke: #B9B272;
+}
+.blocklySelected>.blocklyCommentTarget {
+stroke: #fc3;
+stroke-width: 3px;
+}
+.blocklyCommentTextarea {
+background-color: #fef49c;
+border: 0;
+outline: 0;
+margin: 0;
+padding: 3px;
+resize: none;
+display: block;
+overflow: hidden;
+}
+.blocklyCommentDeleteIcon {
+cursor: pointer;
+fill: #000;
+display: none
+}
+.blocklySelected > .blocklyCommentDeleteIcon {
+display: block
+}
+.blocklyDeleteIconShape {
+fill: #000;
+stroke: #000;
+stroke-width: 1px;
+}
+.blocklyDeleteIconShape.blocklyDeleteIconHighlighted {
+stroke: #fc3;
+}
+.blocklyHtmlInput {
+border: none;
+border-radius: 4px;
+font-family: sans-serif;
+height: 100%;
+margin: 0;
+outline: none;
+padding: 0 1px;
+width: 100%
+}
+.blocklyMainBackground {
+stroke-width: 1;
+stroke: #c6c6c6;
+}
+.blocklyMutatorBackground {
+fill: #fff;
+stroke: #ddd;
+stroke-width: 1;
+}
+.blocklyFlyoutBackground {
+fill: #ddd;
+fill-opacity: .8;
+}
+.blocklyTransparentBackground {
+opacity: 0;
+}
+.blocklyMainWorkspaceScrollbar {
+z-index: 20;
+}
+.blocklyFlyoutScrollbar {
+z-index: 30;
+}
+.blocklyScrollbarHorizontal, .blocklyScrollbarVertical {
+position: absolute;
+outline: none;
+}
+.blocklyScrollbarBackground {
+opacity: 0;
+}
+.blocklyScrollbarHandle {
+fill: #ccc;
+}
+.blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,
+.blocklyScrollbarHandle:hover {
+fill: #bbb;
+}
+.blocklyZoom>image {
+opacity: .4;
+}
+.blocklyZoom>image:hover {
+opacity: .6;
+}
+.blocklyZoom>image:active {
+opacity: .8;
+}
+.blocklyFlyout .blocklyScrollbarHandle {
+fill: #bbb;
+}
+.blocklyFlyout .blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,
+.blocklyFlyout .blocklyScrollbarHandle:hover {
+fill: #aaa;
+}
+.blocklyInvalidInput {
+background: #faa;
+}
+.blocklyAngleCircle {
+stroke: #444;
+stroke-width: 1;
+fill: #ddd;
+fill-opacity: .8;
+}
+.blocklyAngleMarks {
+stroke: #444;
+stroke-width: 1;
+}
+.blocklyAngleGauge {
+fill: #f88;
+fill-opacity: .8;
+}
+.blocklyAngleLine {
+stroke: #f00;
+stroke-width: 2;
+stroke-linecap: round;
+pointer-events: none;
+}
+.blocklyContextMenu {
+border-radius: 4px;
+}
+.blocklyDropdownMenu {
+padding: 0 !important;
+}
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-icon {
+background: url(https://blockly-demo.appspot.com/static/media/sprites.png) no-repeat -48px -16px !important;
+}
+.blocklyToolboxDiv {
+background-color: #ddd;
+overflow-x: visible;
+overflow-y: auto;
+position: absolute;
+user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-webkit-user-select: none;
+z-index: 70;
+-webkit-tap-highlight-color: transparent;
+}
+.blocklyTreeRoot {
+padding: 4px 0;
+}
+.blocklyTreeRoot:focus {
+outline: none;
+}
+.blocklyTreeRow {
+height: 22px;
+line-height: 22px;
+margin-bottom: 3px;
+padding-right: 8px;
+white-space: nowrap;
+}
+.blocklyHorizontalTree {
+float: left;
+margin: 1px 5px 8px 0;
+}
+.blocklyHorizontalTreeRtl {
+float: right;
+margin: 1px 0 8px 5px;
+}
+.blocklyToolboxDiv[dir="RTL"] .blocklyTreeRow {
+margin-left: 8px;
+}
+.blocklyTreeRow:not(.blocklyTreeSelected):hover {
+background-color: #e4e4e4;
+}
+.blocklyTreeSeparator {
+border-bottom: solid #e5e5e5 1px;
+height: 0;
+margin: 5px 0;
+}
+.blocklyTreeSeparatorHorizontal {
+border-right: solid #e5e5e5 1px;
+width: 0;
+padding: 5px 0;
+margin: 0 5px;
+}
+.blocklyTreeIcon {
+background-image: url(https://blockly-demo.appspot.com/static/media/sprites.png);
+height: 16px;
+vertical-align: middle;
+width: 16px;
+}
+.blocklyTreeIconClosedLtr {
+background-position: -32px -1px;
+}
+.blocklyTreeIconClosedRtl {
+background-position: 0 -1px;
+}
+.blocklyTreeIconOpen {
+background-position: -16px -1px;
+}
+.blocklyTreeSelected>.blocklyTreeIconClosedLtr {
+background-position: -32px -17px;
+}
+.blocklyTreeSelected>.blocklyTreeIconClosedRtl {
+background-position: 0 -17px;
+}
+.blocklyTreeSelected>.blocklyTreeIconOpen {
+background-position: -16px -17px;
+}
+.blocklyTreeIconNone,
+.blocklyTreeSelected>.blocklyTreeIconNone {
+background-position: -48px -1px;
+}
+.blocklyTreeLabel {
+cursor: default;
+font-family: sans-serif;
+font-size: 16px;
+padding: 0 3px;
+vertical-align: middle;
+}
+.blocklyToolboxDelete .blocklyTreeLabel {
+cursor: url("https://blockly-demo.appspot.com/static/media/handdelete.cur"), auto;
+}
+.blocklyTreeSelected .blocklyTreeLabel {
+color: #fff;
+}
+.blocklyWidgetDiv .goog-palette {
+outline: none;
+cursor: default;
+}
+.blocklyWidgetDiv .goog-palette-table {
+border: 1px solid #666;
+border-collapse: collapse;
+}
+.blocklyWidgetDiv .goog-palette-cell {
+height: 13px;
+width: 15px;
+margin: 0;
+border: 0;
+text-align: center;
+vertical-align: middle;
+border-right: 1px solid #666;
+font-size: 1px;
+}
+.blocklyWidgetDiv .goog-palette-colorswatch {
+position: relative;
+height: 13px;
+width: 15px;
+border: 1px solid #666;
+}
+.blocklyWidgetDiv .goog-palette-cell-hover .goog-palette-colorswatch {
+border: 1px solid #FFF;
+}
+.blocklyWidgetDiv .goog-palette-cell-selected .goog-palette-colorswatch {
+border: 1px solid #000;
+color: #fff;
+}
+.blocklyWidgetDiv .goog-menu {
+background: #fff;
+border-color: #ccc #666 #666 #ccc;
+border-style: solid;
+border-width: 1px;
+cursor: default;
+font: normal 13px Arial, sans-serif;
+margin: 0;
+outline: none;
+padding: 4px 0;
+position: absolute;
+overflow-y: auto;
+overflow-x: hidden;
+max-height: 100%;
+z-index: 20000;
+}
+.blocklyWidgetDiv .goog-menuitem {
+color: #000;
+font: normal 13px Arial, sans-serif;
+list-style: none;
+margin: 0;
+padding: 4px 7em 4px 28px;
+white-space: nowrap;
+}
+.blocklyWidgetDiv .goog-menuitem.goog-menuitem-rtl {
+padding-left: 7em;
+padding-right: 28px;
+}
+.blocklyWidgetDiv .goog-menu-nocheckbox .goog-menuitem,
+.blocklyWidgetDiv .goog-menu-noicon .goog-menuitem {
+padding-left: 12px;
+}
+.blocklyWidgetDiv .goog-menu-noaccel .goog-menuitem {
+padding-right: 20px;
+}
+.blocklyWidgetDiv .goog-menuitem-content {
+color: #000;
+font: normal 13px Arial, sans-serif;
+}
+.blocklyWidgetDiv .goog-menuitem-disabled .goog-menuitem-accel,
+.blocklyWidgetDiv .goog-menuitem-disabled .goog-menuitem-content {
+color: #ccc !important;
+}
+.blocklyWidgetDiv .goog-menuitem-disabled .goog-menuitem-icon {
+opacity: 0.3;
+filter: alpha(opacity=30);
+}
+.blocklyWidgetDiv .goog-menuitem-highlight,
+.blocklyWidgetDiv .goog-menuitem-hover {
+background-color: #d6e9f8;
+border-color: #d6e9f8;
+border-style: dotted;
+border-width: 1px 0;
+padding-bottom: 3px;
+padding-top: 3px;
+}
+.blocklyWidgetDiv .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-menuitem-icon {
+background-repeat: no-repeat;
+height: 16px;
+left: 6px;
+position: absolute;
+right: auto;
+vertical-align: middle;
+width: 16px;
+}
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-icon {
+left: auto;
+right: 6px;
+}
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-icon {
+background: url(//ssl.gstatic.com/editor/editortoolbar.png) no-repeat -512px 0;
+}
+.blocklyWidgetDiv .goog-menuitem-accel {
+color: #999;
+direction: ltr;
+left: auto;
+padding: 0 6px;
+position: absolute;
+right: 0;
+text-align: right;
+}
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-accel {
+left: 0;
+right: auto;
+text-align: left;
+}
+.blocklyWidgetDiv .goog-menuitem-mnemonic-hint {
+text-decoration: underline;
+}
+.blocklyWidgetDiv .goog-menuitem-mnemonic-separator {
+color: #999;
+font-size: 12px;
+padding-left: 4px;
+}
+.blocklyWidgetDiv .goog-menuseparator {
+border-top: 1px solid #ccc;
+margin: 4px 0;
+padding: 0;
+}
+</style>
+  
+  <meta name="description" content="Free Interactive Programming Tutorials">
+  <meta name="keywords" content="JavaScript,Python,Programming,Reeborg,Karel">
+  <meta name="author" content="André Roberge">
+  <meta name="license" content="CC BY-NC-SA 3.0">
+  <link rel="shortcut icon" href="https://reeborg.ca/src/images/favicon.ico" type="image/icon">
+  <link rel="icon" href="https://reeborg.ca/src/images/favicon.ico" type="image/icon">
+  <link defer="" href="./Reeborg&#39;s World_files/jquery-ui.custom.min.css" rel="stylesheet">
+  <!--online--><link defer="" href="./Reeborg&#39;s World_files/css" rel="stylesheet" type="text/css"><!--/online-->
+
+   <!--offline <style>
+  @font-face {
+    font-family: 'Roboto Mono';
+    font-weight: 700;
+    font-style: normal;
+    src: url('offline/roboto_mono/fonts/Roboto-Mono-700/Roboto-Mono-700.eot');
+    src: url('offline/roboto_mono/fonts/Roboto-Mono-700/Roboto-Mono-700.eot?#iefix') format('embedded-opentype'),
+        local('Roboto Mono Bold'),
+        local('Roboto-Mono-700'),
+        url('offline/roboto_mono/fonts/Roboto-Mono-700/Roboto-Mono-700.woff2') format('woff2'),
+        url('offline/roboto_mono/fonts/Roboto-Mono-700/Roboto-Mono-700.woff') format('woff'),
+        url('offline/roboto_mono/fonts/Roboto-Mono-700/Roboto-Mono-700.ttf') format('truetype'),
+        url('offline/roboto_mono/fonts/Roboto-Mono-700/Roboto-Mono-700.svg#RobotoMono') format('svg');
+  }
+  </style> /offline-->
+
+  <!--offline <link rel="stylesheet" href="offline/codemirror-5.8.0/lib/codemirror.css"> /offline-->
+  <!--online--><link rel="stylesheet" href="./Reeborg&#39;s World_files/codemirror.css"><!--/online-->
+  <link defer="" rel="stylesheet" href="./Reeborg&#39;s World_files/reeborg_world2.css">
+  <!-- load after codemirror.css -->
+  <title>Reeborg's World</title>
+  <script type="text/javascript">
+    var RUR = {};
+    RUR.DEFAULT_MENU_EN = '/worlds/menus/select_collection_en.json';
+    RUR.DEFAULT_MENU_FR = '/worlds/menus/select_collection_fr.json';
+    RUR.DEFAULT_MENU_CN = '/worlds/menus/select_collection_cn.json';
+    RUR.DEFAULT_MENU_KO = '/worlds/menus/select_collection_ko.json';
+  </script>
+<link type="text/css" rel="stylesheet" href="./Reeborg&#39;s World_files/css2"></head>
+<body>
+  <header class="blue-gradient green-border">
+    <a id="logo" href="https://reeborg.ca/index_en.html" class="fake-button">
+      <img src="./Reeborg&#39;s World_files/robot_e.png" alt="logo">
+      <span id="site-name">Reeborg's World</span>
+    </a>
+    <div id="header-child">
+      <select id="select-world" title="Select world" fdprocessedid="9dxyag"><option value="worlds/tutorial_en/alone.json">Alone</option><option value="worlds/tutorial_en/home1.json">Home 1</option><option value="worlds/tutorial_en/home2.json">Home 2</option><option value="worlds/tutorial_en/home3.json">Home 3</option><option value="worlds/tutorial_en/home4.json">Home 4</option><option class="select-menu" value="worlds/menus/select_collection_en.json">Other worlds</option><option value="worlds/tutorial_en/around1.json">Around 1</option><option value="worlds/tutorial_en/around1b.json">Around 1 - variable</option><option value="worlds/tutorial_en/around1c.json">Around 1 - apple</option><option value="worlds/tutorial_en/around2.json">Around 2</option><option value="worlds/tutorial_en/around3.json">Around 3</option><option value="worlds/tutorial_en/around4.json">Around 4</option><option value="worlds/tutorial_en/center1.json">Center 1</option><option value="worlds/tutorial_en/center2.json">Center 2</option><option value="worlds/tutorial_en/harvest1.json">Harvest 1</option><option value="worlds/tutorial_en/harvest2.json">Harvest 2</option><option value="worlds/tutorial_en/harvest3.json">Harvest 3</option><option value="worlds/tutorial_en/hurdle1.json">Hurdle 1 ✓🤖</option><option value="worlds/tutorial_en/hurdle2.json">Hurdle 2</option><option value="worlds/tutorial_en/hurdle3.json">Hurdle 3</option><option value="worlds/tutorial_en/hurdle4.json">Hurdle 4 ✓🤖</option><option value="worlds/tutorial_en/maze1.json">Maze ✓🤖</option><option value="worlds/tutorial_en/newspaper0.json">Newspaper 0</option><option value="worlds/tutorial_en/newspaper-ada.json">Newspaper 1</option><option value="worlds/tutorial_en/rain0.json">Rain 0</option><option value="worlds/tutorial_en/rain1.json">Rain 1</option><option value="worlds/tutorial_en/rain2.json">Rain 2</option><option value="worlds/tutorial_en/storm1.json">Storm 1</option><option value="worlds/tutorial_en/storm2.json">Storm 2</option><option value="worlds/tutorial_en/storm3.json">Storm 3</option><option value="worlds/tutorial_en/storm4.json">Storm 4</option><option value="worlds/tutorial_en/tokens1.json">Tokens 1</option><option value="worlds/tutorial_en/tokens2.json">Tokens 2</option><option value="worlds/tutorial_en/tokens3.json">Tokens 3</option><option value="worlds/tutorial_en/tokens4.json">Tokens 4</option><option value="worlds/tutorial_en/tokens5.json">Tokens 5</option></select>
+      <button class="blue-gradient" id="world-info-button" fdprocessedid="nrxw7b">World Info</button>
+      <select id="programming-mode" title="Select programming mode" fdprocessedid="sj0pgp">
+        <option value="python">Python</option>
+        <option value="javascript">JavaScript</option>
+        <option value="coffeescript">CoffeeScript</option>
+        <option value="cpp">C++</option>
+        <option value="blockly-py">Blockly (Py)</option>
+        <option value="blockly-js">Blockly (Js)</option>
+        <option value="py-repl">REPL (Py)</option>
+      </select>
+      <input type="checkbox" id="editor-visible-input" value="visible" style="display: none;">
+      <label id="editor-visible-label" style="display: none;">Keep editor visible</label>
+      <button class="blue-gradient" id="special-keyboard-button" fdprocessedid="zpzv6" style="display: inline-block;">Reeborg's keyboard</button>
+      <button id="more-menus-button" class="blue-gradient" fdprocessedid="j9drg">Additional options</button>
+      <select id="human-language" title="Select UI language" fdprocessedid="4osmxa">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="lt">Lithuanian</option>
+        <option value="pl">Polski</option>
+        <option value="pt">Português</option>
+        <option value="cn">中文</option>
+        <option value="ko">한국어</option>
+        <optgroup label="------------">
+          <option class="select-mixed" value="de-en">Deutsch + en</option>
+          <option class="select-mixed" value="fr-en">Français + en</option>
+          <option class="select-mixed" value="pl-en">Polski + en</option>
+          <option class="select-mixed" value="pt-en">Português + en</option>
+          <option class="select-mixed" value="ko-en">한국어 + en</option>
+          <option class="select-mixed" value="cn-en">中文 + en</option>
+          <option class="select-mixed" value="en-fr">English + fr</option>
+          <option class="select-mixed" value="en-cn">English + 中文</option>
+          <option class="select-mixed" value="en-ko">English + 한국어</option>
+        </optgroup>
+      </select>
+    </div>
+  </header>
+  <p id="thought" style="display: none;"><img src="./Reeborg&#39;s World_files/robot_e.png" alt="logo">
+    <span id="thinking">Thinking ...</span></p>
+  <div id="blockly-wrapper" class="ui-draggable" style="pointer-events: none; opacity: 0.01;">
+    <p id="move-handle">&nbsp;</p>
+    
+  <div id="blocklyDiv" class="ui-resizable"><div class="injectionDiv" dir="LTR"><div class="blocklyToolboxDiv" dir="LTR" style="left: 0px; height: 600px; pointer-events: none; opacity: 0.01;"><div class="blocklyTreeRoot" id=":0" role="tree" aria-selected="false" aria-level="0" aria-labelledby=":0.label" aria-expanded="false" hidefocus="true" tabindex="0"><div class="blocklyTreeRow blocklyHidden" style="padding-left:0px;"><span style="display:inline-block;" class="" role="presentation"></span><span class="blocklyTreeLabel" id=":0.label"></span><span></span></div><div style="background-position:-100px 0;" role="group"><div class="" id=":1" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":1.label" aria-setsize="6" aria-posinset="1"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(91, 165, 91);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":1.label">Basic commands</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":2" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":2.label" aria-setsize="6" aria-posinset="2"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(153, 91, 165);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":2.label">Defining</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":3" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":3.label" aria-setsize="6" aria-posinset="3"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(91, 103, 165);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":3.label">Loops</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":4" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":4.label" aria-setsize="6" aria-posinset="4"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(91, 91, 165);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":4.label">Decisions</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":5" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":5.label" aria-setsize="6" aria-posinset="5"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(91, 91, 165);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":5.label">Conditions</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":6" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":6.label" aria-setsize="6" aria-posinset="6"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(165, 116, 91);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconClosedLtr" role="presentation"></span><span class="blocklyTreeLabel" id=":6.label">Using variables</span><span></span></div><div style="background-position:-100px 0;display:none;" role="group"></div></div></div></div></div><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklySvg" width="620px" height="600px"><defs><filter id="blocklyEmbossFilter5093527400474291"><fegaussianblur in="SourceAlpha" stdDeviation="1" result="blur"></fegaussianblur><fespecularlighting in="blur" surfaceScale="1" specularConstant="0.5" specularExponent="10" lighting-color="white" result="specOut"><fepointlight x="-5000" y="-10000" z="20000"></fepointlight></fespecularlighting><fecomposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"></fecomposite><fecomposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"></fecomposite></filter><pattern id="blocklyDisabledPattern5093527400474291" patternUnits="userSpaceOnUse" width="10" height="10"><rect width="10" height="10" fill="#aaa"></rect><path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="#cc0"></path></pattern><pattern id="blocklyGridPattern5093527400474291" patternUnits="userSpaceOnUse" width="100" height="100" x="160" y="0"><line stroke-width="1" x1="0" y1="0.5" x2="1" y2="0.5"></line></pattern></defs><g class="blocklyWorkspace"><rect height="100%" width="100%" class="blocklyMainBackground" style="fill: url(&quot;#blocklyGridPattern5093527400474291&quot;);"></rect><g class="blocklyTrash" transform="translate(538,505)" style="opacity: 0.4;"><clippath id="blocklyTrashBodyClipPath11661472176246646"><rect width="47" height="44" y="16"></rect></clippath><image width="96" x="0" height="124" y="-32" clip-path="url(#blocklyTrashBodyClipPath11661472176246646)" xlink:href="https://blockly-demo.appspot.com/static/media/sprites.png"></image><clippath id="blocklyTrashLidClipPath11661472176246646"><rect width="47" height="16"></rect></clippath><image width="96" x="0" height="124" y="-32" clip-path="url(#blocklyTrashLidClipPath11661472176246646)" xlink:href="https://blockly-demo.appspot.com/static/media/sprites.png" transform="rotate(0,43,14)"></image></g><g class="blocklyBlockCanvas" transform="translate(160,0) scale(1)"></g><g class="blocklyBubbleCanvas" transform="translate(160,0) scale(1)"></g><rect height="15" width="15" class="blocklyScrollbarBackground" x="604.5" y="584.5"></rect><g class="blocklyZoom" transform="translate(553,375)"><clippath id="blocklyZoomoutClipPath3023029225131799"><rect width="32" height="32" y="77"></rect></clippath><image width="96" height="124" x="-64" y="-15" clip-path="url(#blocklyZoomoutClipPath3023029225131799)" xlink:href="https://blockly-demo.appspot.com/static/media/sprites.png"></image><clippath id="blocklyZoominClipPath3023029225131799"><rect width="32" height="32" y="43"></rect></clippath><image width="96" height="124" x="-32" y="-49" clip-path="url(#blocklyZoominClipPath3023029225131799)" xlink:href="https://blockly-demo.appspot.com/static/media/sprites.png"></image><clippath id="blocklyZoomresetClipPath3023029225131799"><rect width="32" height="32"></rect></clippath><image width="96" height="124" y="-92" clip-path="url(#blocklyZoomresetClipPath3023029225131799)" xlink:href="https://blockly-demo.appspot.com/static/media/sprites.png"></image></g></g></svg><svg class="blocklyScrollbarVertical blocklyMainWorkspaceScrollbar" width="15" height="584" style="transform: translate(604.5px, 0.5px);"><g><rect class="blocklyScrollbarBackground" width="15" height="584"></rect><rect class="blocklyScrollbarHandle" rx="5" ry="5" width="10" x="2.5" height="292" y="292"></rect></g></svg><svg class="blocklyScrollbarHorizontal blocklyMainWorkspaceScrollbar" height="15" width="444" style="transform: translate(160.5px, 584.5px);"><g><rect class="blocklyScrollbarBackground" height="15" width="444"></rect><rect class="blocklyScrollbarHandle" rx="5" ry="5" height="10" y="2.5" width="222" x="222"></rect></g></svg><svg class="blocklyFlyout" style="display: none"><path class="blocklyFlyoutBackground"></path><g class="blocklyWorkspace"><g class="blocklyBlockCanvas"></g><g class="blocklyBubbleCanvas"></g></g></svg><svg class="blocklyScrollbarVertical blocklyFlyoutScrollbar" width="15"><g><rect class="blocklyScrollbarBackground" width="15"></rect><rect class="blocklyScrollbarHandle" rx="5" ry="5" width="10" x="2.5"></rect></g></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklyBlockDragSurface"><g transform="translate(160,0) scale(1)"></g></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklyWsDragSurface blocklyOverflowVisible"></svg></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div></div>
+  <xml id="toolbox" style="display: none">
+    <category id="blockly-basic-commands" name="Basic commands" colour="120">
+      <block type="_move_"></block>
+      <block type="_turn_left_"></block>
+      <block type="_take_"></block>
+      <block type="_put_"></block>
+      <block type="_build_wall_"></block>
+      <block type="_sound_"></block>
+      <block type="_pause_"></block>
+      <block type="_done_"></block>
+    </category>
+    <category id="blockly-defining" name="Defining" colour="290" custom="PROCEDURE"></category>
+    <category id="blockly-loops" name="Loops" colour="230">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <block type="math_number"></block>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    <category id="blockly-decisions" name="Decisions" colour="240">
+      <block type="_if_"></block>
+      <block type="_if_else_"></block>
+      <block type="_if_else_if_else_"></block>
+      <block type="controls_if"></block>
+    </category>
+    <category id="blockly-conditions" name="Conditions" colour="240">
+      <block type="_at_goal_"></block>
+      <block type="_carries_object_"></block>
+      <block type="_object_here_"></block>
+      <block type="_is_facing_north_"></block>
+      <block type="_front_or_right_is_clear_"></block>
+      <block type="_wall_in_front_or_right_"></block>
+      <block type="logic_negate"></block>
+    </category>
+    <category id="blockly-using-variables" name="Using variables" colour="20">
+      <category id="blockly-commands-var" name="Commandes" colour="120">
+        <block type="_take_or_put_"></block>
+      </category>
+      <category id="blockly-objects" name="Objects" colour="20">
+        <block type="_token_"></block>
+        <block type="_apple_"></block>
+        <block type="_banana_"></block>
+        <block type="_strawberry_"></block>
+        <block type="_triangle_"></block>
+        <block type="_square_"></block>
+        <block type="_star_"></block>
+        <block type="_daisy_"></block>
+        <block type="_dandelion_"></block>
+        <block type="_tulip_"></block>
+        <block type="_leaf_"></block>
+        <block type="_beeper_"></block>
+      </category>
+      <category id="blockly-conditions-var" name="Conditions" colour="240">
+        <block type="_carries_object_or_here_"></block>
+      </category>
+      <category id="blockly-other" name="Other" colour="290">
+        <block type="_think_"></block>
+        <block type="math_number"></block>
+        <block type="text"></block>
+        <block type="text_print"></block>
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+      </category>
+    </category>
+  </xml>
+  <div id="world-panel" class="active">
+    <div id="world-controls">
+      <button class="blue-gradient" id="reverse-step" fdprocessedid="q656nj" disabled="disabled">
+        <img src="./Reeborg&#39;s World_files/reverse_step.png" alt="reverse step">
+      </button>
+      <button class="blue-gradient" id="run" title="run" fdprocessedid="wpoz0k" disabled="disabled">
+        <img src="./Reeborg&#39;s World_files/play.png" alt="run">
+      </button>
+      <button class="blue-gradient" id="step" title="step" fdprocessedid="n0yjzer" disabled="disabled">
+        <img src="./Reeborg&#39;s World_files/step.png" alt="step">
+      </button>
+      <button class="blue-gradient" id="pause" title="pause" fdprocessedid="5n0p0ve" disabled="disabled">
+        <img src="./Reeborg&#39;s World_files/pause.png" alt="pause">
+      </button>
+      <button class="blue-gradient" id="stop" title="stop" fdprocessedid="x99o99" disabled="disabled">
+        <img src="./Reeborg&#39;s World_files/stop.png" alt="stop">
+      </button>
+      <button class="blue-gradient" id="reload" title="reload" fdprocessedid="z4cww">
+        <img src="./Reeborg&#39;s World_files/reload.png" alt="reload">
+      </button>
+      <button class="blue-gradient" id="reload2" title="reload" disabled="" style="display: none;">
+        <img src="./Reeborg&#39;s World_files/reload.png" alt="reload">
+      </button>
+      <input id="frame-selector" class="disabled" type="range" min="0" value="0" step="1" max="261" disabled="disabled" style="display: inline-block;">
+      <span id="frame-id" style="display: inline;">262/262</span>
+      <button id="save-solution-btn" class="solution-button" fdprocessedid="s4hcxt" disabled="disabled">
+        <img src="./Reeborg&#39;s World_files/save_program.png" alt="Save solution">
+      </button>
+      <button id="open-solution-btn" class="solution-button" fdprocessedid="g66iyn" disabled="disabled">
+        <img src="./Reeborg&#39;s World_files/open_program.png" alt="Open solution">
+      </button>
+    </div>
+    <div id="canvas-wrapper">
+      <canvas id="background-canvas" width="300" height="300"></canvas> <!-- 1 -->
+      <canvas id="tiles-canvas" width="300" height="300"></canvas> <!-- 2 -->
+      <canvas id="tiles-canvas-anim" width="300" height="300"></canvas> <!-- 3 -->
+      <canvas id="bridge-canvas" width="300" height="300"></canvas> <!-- 4 -->
+      <canvas id="bridge-canvas-anim" width="300" height="300"></canvas> <!-- 5 -->
+      <canvas id="decorative-objects-canvas" width="300" height="300"></canvas> <!-- 6 -->
+      <canvas id="decorative-objects-canvas-anim" width="300" height="300"></canvas> <!-- 7 -->
+      <canvas id="obstacles-canvas" width="300" height="300"></canvas> <!-- 8 -->
+      <canvas id="obstacles-canvas-anim" width="300" height="300"></canvas> <!-- 9 -->
+      <canvas id="goal-canvas" width="300" height="300"></canvas> <!-- 10 -->
+       <!-- 11 removed -->
+      <canvas id="goal-canvas-anim" width="300" height="300"></canvas> <!-- 12 -->
+      <canvas id="objects-canvas" width="300" height="300"></canvas> <!-- 13 -->
+      <canvas id="objects-canvas-anim" width="300" height="300"></canvas> <!-- 14 -->
+      <canvas id="trace-canvas" width="300" height="300"></canvas> <!-- 15 -->
+      <canvas id="pushables-canvas" width="300" height="300"></canvas> <!-- 16 -->
+      <canvas id="pushables-canvas-anim" width="300" height="300"></canvas> <!-- 17 -->
+      <canvas id="wall-canvas" width="300" height="300"></canvas> <!-- 18 -->
+      <canvas id="robot-canvas" width="300" height="300"></canvas> <!-- 19 -->
+      <canvas id="robot-anim-canvas" width="300" height="300"></canvas> <!-- 20 -->
+      <canvas id="tooltip" width="40" height="40" style="left: -200px; top: 215px;"></canvas>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div id="image-choice-buttons-small">
+      <button id="robot0" alt="classic robot" fdprocessedid="aq44yp"><img src="./Reeborg&#39;s World_files/robot_e.png"></button>
+      <button id="robot1" alt="rover type robot" fdprocessedid="p7b0f"><img src="./Reeborg&#39;s World_files/rover_e.png"></button>
+      <button id="robot2" alt="plain robot" fdprocessedid="2tlyb5"><img src="./Reeborg&#39;s World_files/plain_e.png"></button>
+      <button id="robot3" alt="solar panel robot" fdprocessedid="8fe7pq"><img src="./Reeborg&#39;s World_files/sp_e.png"></button>
+    </div>
+  </div>
+
+  <div id="mixed-language-info" style="display: none;">en</div>
+
+  <div id="editor-panel" class="ui-resizable ui-draggable active">
+    <input type="file" id="fileInput" style="display:none;">
+    <div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+      <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+        <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="editor" aria-labelledby="editor-tab" aria-selected="true">
+          <a id="editor-tab" href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#editor" class="ui-tabs-anchor" role="presentation" tabindex="-1">Python Code</a>
+        </li>
+        <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="library" aria-labelledby="library-tab" aria-selected="false" style="display: list-item;">
+          <a id="library-tab" href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#library" class="ui-tabs-anchor" role="presentation" tabindex="-1">library</a>
+        </li>
+        <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="extra" aria-labelledby="extra-tab" aria-selected="false" style="display: none;">
+          <a id="extra-tab" href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#extra" class="ui-tabs-anchor" role="presentation" tabindex="-1">extra</a>
+        </li>
+        <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="pre-code-div" aria-labelledby="pre-code-tab" aria-selected="false" style="display: none;">
+          <a id="pre-code-tab" href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#pre-code-div" class="ui-tabs-anchor" role="presentation" tabindex="-1">Pre</a>
+        </li>
+        <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="post-code-div" aria-labelledby="post-code-tab" aria-selected="false" style="display: none;">
+          <a id="post-code-tab" href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#post-code-div" class="ui-tabs-anchor" role="presentation" tabindex="-1">Post</a>
+        </li>
+        <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="description-div" aria-labelledby="description-tab" aria-selected="false" style="display: none;">
+          <a id="description-tab" href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#description-div" class="ui-tabs-anchor" role="presentation" tabindex="-1">Desc.</a>
+        </li>
+        <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="onload-editor-div" aria-labelledby="onload-editor-tab" aria-selected="false" style="display: none;">
+          <a id="onload-editor-tab" href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#onload-editor-div" class="ui-tabs-anchor" role="presentation" tabindex="-1">Onload</a>
+        </li>
+        <button id="watch-variables-btn" class="blue-gradient float-right" fdprocessedid="a6s29" disabled="disabled" style="display: block;">
+          <img src="./Reeborg&#39;s World_files/magnifying_yes.png" alt="watch">
+        </button>
+        <button id="highlight" class="active-element float-right" fdprocessedid="j2wpy6" disabled="disabled" style="display: block;">
+          <img src="./Reeborg&#39;s World_files/highlight.png" alt="highlight">
+        </button>
+        <button id="increase-font-size" class="blue-gradient float-right" fdprocessedid="bixbrl">
+          <small><small>A</small></small>↑A</button>
+        <button id="decrease-font-size" class="blue-gradient float-right" fdprocessedid="wh69m6">
+          A↓<small><small>A</small></small></button>
+      </ul>
+      <div id="editor" aria-labelledby="editor-tab" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false">
+        <textarea id="code" name="code" style="display: none;">move()</textarea><div class="CodeMirror cm-s-reeborg-dark"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 367.938px; left: 35px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="false"><div class="CodeMirror-sizer" style="margin-left: 31px; margin-bottom: -17px; border-right-width: 13px; min-height: 469px; min-width: 340.475px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 4px; top: 363.938px; height: 24.2625px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">turn_right</span>():</span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-variable">turn_left</span>()</span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-variable">turn_left</span>()</span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-variable">turn_left</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">while</span> <span class="cm-keyword">not</span> <span class="cm-variable">at_goal</span>() :  </span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">            <span class="cm-keyword">if</span> <span class="cm-variable">right_is_clear</span>() : </span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">                <span class="cm-variable">turn_right</span>()</span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">                <span class="cm-variable">move</span>()</span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">            <span class="cm-keyword">elif</span> <span class="cm-variable">front_is_clear</span>() :</span></pre></div><div style="position: relative;" class=""><div class="editor-highlight CodeMirror-linebackground"></div><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">                <span class="cm-variable">move</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">                </span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">            <span class="cm-keyword">else</span>:</span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">14</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">                <span class="cm-variable">turn_left</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">15</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">16</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">17</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">            </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">18</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">        </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">19</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    </span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 469px;"></div><div class="CodeMirror-gutters" style="height: 542px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+      </div>
+      <div id="library" aria-labelledby="library-tab" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+        <textarea id="library-code" name="library-code" style="display: none;"></textarea><div class="CodeMirror cm-s-reeborg-dark"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; margin-bottom: -17px; border-right-width: 13px; min-height: 32px; min-width: 7px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 24.2625px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 32px;"></div><div class="CodeMirror-gutters" style="height: 542px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+      </div>
+      <div id="extra" aria-labelledby="extra-tab" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+        <textarea id="extra-code" name="extra-code" style="display: none;"></textarea><div class="CodeMirror cm-s-reeborg-readonly"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 35px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; margin-bottom: -17px; border-right-width: 13px; min-height: 32px; min-width: 7px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 24.2625px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 32px;"></div><div class="CodeMirror-gutters" style="height: 45px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+      </div>
+      <div id="pre-code-div" aria-labelledby="pre-code-tab" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+        <textarea id="pre-code" name="pre-code" style="display: none;"></textarea><div class="CodeMirror cm-s-reeborg-dark"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="display: block; bottom: 0px;"><div style="min-width: 1px; height: 79px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="right: 17px; left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true" style="height: 17px; width: 17px;"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; margin-bottom: -17px; border-right-width: 13px; min-height: 32px; min-width: 3px; padding-right: 17px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"><pre class="CodeMirror-line"><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 0px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 32px;"></div><div class="CodeMirror-gutters" style="height: 45px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+      </div>
+      <div id="post-code-div" aria-labelledby="post-code-tab" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+        <textarea id="post-code" name="post-code" style="display: none;"></textarea><div class="CodeMirror cm-s-reeborg-dark"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="display: block; bottom: 0px;"><div style="min-width: 1px; height: 79px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="right: 17px; left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true" style="height: 17px; width: 17px;"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; margin-bottom: -17px; border-right-width: 13px; min-height: 32px; min-width: 3px; padding-right: 17px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"><pre class="CodeMirror-line"><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 0px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 32px;"></div><div class="CodeMirror-gutters" style="height: 45px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+      </div>
+      <div id="description-div" aria-labelledby="description-tab" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+        <textarea id="description" name="description" style="display: none;"></textarea><div class="CodeMirror cm-s-reeborg-dark"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="display: block; bottom: 0px;"><div style="min-width: 1px; height: 394px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="right: 17px; left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true" style="height: 17px; width: 17px;"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; margin-bottom: -17px; border-right-width: 13px; min-height: 32px; min-width: 3px; padding-right: 17px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"><pre class="CodeMirror-line"><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 0px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 32px;"></div><div class="CodeMirror-gutters" style="height: 45px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+      </div>
+      <div id="onload-editor-div" aria-labelledby="onload-editor-tab" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+        <textarea id="onload-editor" name="onload-editor" style="display: none;"></textarea><div class="CodeMirror cm-s-reeborg-dark"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="display: block; bottom: 0px;"><div style="min-width: 1px; height: 176px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="right: 17px; left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true" style="height: 17px; width: 17px;"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 31px; margin-bottom: -17px; border-right-width: 13px; min-height: 32px; min-width: 3px; padding-right: 17px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"><pre class="CodeMirror-line"><span style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">x</span>, <span class="cm-def">y</span>;</span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 0px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -31px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 32px;"></div><div class="CodeMirror-gutters" style="height: 45px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+      </div>
+    </div>
+    <div id="highlight-impossible" style="display:none; background-color:gold;">A problem with your code has caused me to turn off the code highlighting.</div>
+  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
+  <textarea id="py-console" rows="35," cols="81" style="display:none"></textarea>
+  <div style="display:none;" id="edit-world-panel" title="World editor">
+    <button id="memorize-world" class="blue-gradient">Save world in browser</button>
+    <span id="add-content-to-world">Add content to world from selected items below.</span>
+    <p>
+      <button id="add-blockly-to-world-btn" class="blue-gradient">
+        <img src="./Reeborg&#39;s World_files/ok.png" id="add-blockly-ok" style="display:none">
+        <img src="./Reeborg&#39;s World_files/not_ok.png" id="add-blockly-not-ok">
+        <span id="add-blockly-text">Code blocks</span>
+      </button>
+      <button id="add-editor-to-world-btn" class="blue-gradient">
+        <img src="./Reeborg&#39;s World_files/ok.png" id="add-editor-ok" style="display:none">
+        <img src="./Reeborg&#39;s World_files/not_ok.png" id="add-editor-not-ok">
+        <span id="add-editor-text">Code in editor</span>
+      </button>
+      <button id="add-library-to-world-btn" class="blue-gradient">
+        <img src="./Reeborg&#39;s World_files/ok.png" id="add-library-ok" style="display:none">
+        <img src="./Reeborg&#39;s World_files/not_ok.png" id="add-library-not-ok">
+        <span id="add-library-text">Library</span>
+      </button>
+      <button id="add-pre-to-world-btn" class="blue-gradient">
+        <img src="./Reeborg&#39;s World_files/ok.png" id="add-pre-ok" style="display:none">
+        <img src="./Reeborg&#39;s World_files/not_ok.png" id="add-pre-not-ok">
+        <span id="add-pre-text">Pre</span>
+      </button>
+      <button id="add-post-to-world-btn" class="blue-gradient">
+        <img src="./Reeborg&#39;s World_files/ok.png" id="add-post-ok" style="display:none">
+        <img src="./Reeborg&#39;s World_files/not_ok.png" id="add-post-not-ok">
+        <span id="add-post-text">Post</span>
+      </button>
+      <button id="add-description-to-world-btn" class="active-element">
+        <img src="./Reeborg&#39;s World_files/ok.png" id="add-description-ok" style="display: inline;">
+        <img src="./Reeborg&#39;s World_files/not_ok.png" id="add-description-not-ok" style="display: none;">
+        <span id="add-description-text">Description</span>
+      </button>
+      <button id="add-onload-to-world-btn" class="active-element">
+        <img src="./Reeborg&#39;s World_files/ok.png" id="add-onload-ok" style="">
+        <img src="./Reeborg&#39;s World_files/not_ok.png" id="add-onload-not-ok" style="display: none;">
+        <span id="add-onload-text">Onload</span>
+      </button>
+    </p>
+    <div id="edit-world-submenus-wrapper">
+      <p id="cmd-result"></p>
+      <ul class="edit-world-canvas" id="edit-world-turn" style="display:none">
+        <li>
+          <a href="javascript:RUR.we.turn_robot(0);"><img src="./Reeborg&#39;s World_files/robot_e.png" alt="robot: east"></a>
+          <br><span id="east">East</span></li>
+        <li>
+          <a href="javascript:RUR.we.turn_robot(1);"><img src="./Reeborg&#39;s World_files/robot_n.png" alt="robot: north"></a>
+          <br><span id="north">North</span></li>
+        <li>
+          <a href="javascript:RUR.we.turn_robot(2);"><img src="./Reeborg&#39;s World_files/robot_w.png" alt="robot: west"></a>
+          <br><span id="west">West</span></li>
+        <li>
+          <a href="javascript:RUR.we.turn_robot(3);"><img src="./Reeborg&#39;s World_files/robot_s.png" alt="robot: south"></a>
+          <br><span id="south">South</span></li>
+        <li id="random-orientation">
+          <a href="javascript:RUR.we.turn_robot(-1);"><img src="./Reeborg&#39;s World_files/robot_random.png" alt="robot: random orientation"></a>
+          <br><span id="random">Random</span></li>
+      </ul>
+      <ul class="edit-world-canvas" id="edit-world-objects" style="display:none">
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-token&#39;);"><img src="./Reeborg&#39;s World_files/token.png" alt="token"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-star&#39;);"><img src="./Reeborg&#39;s World_files/star.png" alt="star"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-triangle&#39;);"><img src="./Reeborg&#39;s World_files/triangle.png" alt="triangle"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-square&#39;);"><img src="./Reeborg&#39;s World_files/square.png" alt="square"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-strawberry&#39;);"><img src="./Reeborg&#39;s World_files/strawberry.png" alt="strawberry"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-banana&#39;);"><img src="./Reeborg&#39;s World_files/banana.png" alt="banana"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-apple&#39;);"><img src="./Reeborg&#39;s World_files/apple.png" alt="apple"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-leaf&#39;);"><img src="./Reeborg&#39;s World_files/leaf.png" alt="leaf"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-dandelion&#39;);"><img src="./Reeborg&#39;s World_files/dandelion.png" alt="dandelion"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-carrot&#39;);"><img src="./Reeborg&#39;s World_files/carrot.png" alt="carrot"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-tulip&#39;);"><img src="./Reeborg&#39;s World_files/tulip.png" alt="tulip"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-daisy&#39;);"><img src="./Reeborg&#39;s World_files/daisy.png" alt="daisy"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;object-beeper&#39;);"><img src="./Reeborg&#39;s World_files/beeper2.png" alt="beeper"></a>
+        </li>
+      </ul>
+      <ul class="edit-world-canvas" id="edit-tile" style="display:none">
+        <li>
+          <a href="javascript:RUR.we.select(&#39;tile-mud&#39;);"><img src="./Reeborg&#39;s World_files/mud.png" alt="mud tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;tile-water&#39;);"><img src="./Reeborg&#39;s World_files/water.png" alt="water tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;tile-grass&#39;);"><img src="./Reeborg&#39;s World_files/grass.png" alt="grass tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;tile-pale_grass&#39;);"><img src="./Reeborg&#39;s World_files/pale_grass.png" alt="grass tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;tile-gravel&#39;);"><img src="./Reeborg&#39;s World_files/gravel.png" alt="gravel tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;tile-bricks&#39;);"><img src="./Reeborg&#39;s World_files/bricks.png" alt="bricks tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;tile-ice&#39;);"><img src="./Reeborg&#39;s World_files/ice.png" alt="bricks tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;tile-colour&#39;);"><img src="./Reeborg&#39;s World_files/tile_colour.png" alt="colored tile"></a>
+        </li>
+      </ul>
+      <ul class="edit-world-canvas" id="fill-tile" style="display:none">
+        <li>
+          <a href="javascript:RUR.we.select(&#39;fill-mud&#39;);"><img src="./Reeborg&#39;s World_files/mud.png" alt="mud tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;fill-water&#39;);"><img src="./Reeborg&#39;s World_files/water.png" alt="water tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;fill-grass&#39;);"><img src="./Reeborg&#39;s World_files/grass.png" alt="grass tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;fill-pale_grass&#39;);"><img src="./Reeborg&#39;s World_files/pale_grass.png" alt="grass tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;fill-gravel&#39;);"><img src="./Reeborg&#39;s World_files/gravel.png" alt="gravel tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;fill-bricks&#39;);"><img src="./Reeborg&#39;s World_files/bricks.png" alt="bricks tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;fill-ice&#39;);"><img src="./Reeborg&#39;s World_files/ice.png" alt="ice tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;fill-colour&#39;);"><img src="./Reeborg&#39;s World_files/tile_colour.png" alt="colored tile"></a>
+        </li>
+      </ul>
+      <ul class="edit-world-canvas" id="edit-solid-object" style="display:none">
+        <li>
+          <a href="javascript:RUR.we.select(&#39;solid_object-bridge&#39;);"><img src="./Reeborg&#39;s World_files/bridge.png" alt="bridge tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;solid_object-fence_right&#39;);"><img src="./Reeborg&#39;s World_files/fence_right.png" alt="part of fence tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;solid_object-fence_left&#39;);"><img src="./Reeborg&#39;s World_files/fence_left.png" alt="part of fence tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;solid_object-fence_double&#39;);"><img src="./Reeborg&#39;s World_files/fence_double.png" alt="part of fence tile"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;solid_object-fence_vertical&#39;);"><img src="./Reeborg&#39;s World_files/fence_vertical.png" alt="part of fence tile"></a>
+        </li>
+      </ul>
+      <ul class="edit-goal-canvas" id="edit-goal-objects" style="display:none">
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-token&#39;);"><img src="./Reeborg&#39;s World_files/token_goal.png" alt="token"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-star&#39;);"><img src="./Reeborg&#39;s World_files/star_goal.png" alt="star"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-triangle&#39;);"><img src="./Reeborg&#39;s World_files/triangle_goal.png" alt="triangle"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-square&#39;);"><img src="./Reeborg&#39;s World_files/square_goal.png" alt="square"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-strawberry&#39;);"><img src="./Reeborg&#39;s World_files/strawberry_goal.png" alt="strawberry"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-banana&#39;);"><img src="./Reeborg&#39;s World_files/banana_goal.png" alt="banana"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-apple&#39;);"><img src="./Reeborg&#39;s World_files/apple_goal.png" alt="apple"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-leaf&#39;);"><img src="./Reeborg&#39;s World_files/leaf_goal.png" alt="leaf"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-dandelion&#39;);"><img src="./Reeborg&#39;s World_files/dandelion_goal.png" alt="dandelion"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-carrot&#39;);"><img src="./Reeborg&#39;s World_files/carrot_goal.png" alt="carrot"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-tulip&#39;);"><img src="./Reeborg&#39;s World_files/tulip_goal.png" alt="tulip"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-daisy&#39;);"><img src="./Reeborg&#39;s World_files/daisy_goal.png" alt="daisy"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;goal-beeper&#39;);"><img src="./Reeborg&#39;s World_files/beeper_goal.png" alt="beeper"></a>
+        </li>
+      </ul>
+      <ul class="edit-goal-canvas" id="edit-goal-position" style="display:none">
+        <li>
+          <a href="javascript:RUR.we.select(&#39;position-green_home_tile&#39;);"><img src="./Reeborg&#39;s World_files/green_home_tile.png" alt="home"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;position-house&#39;);"><img src="./Reeborg&#39;s World_files/house.png" alt="home"></a>
+        </li>
+        <li>
+          <a href="javascript:RUR.we.select(&#39;position-racing_flag&#39;);"><img src="./Reeborg&#39;s World_files/racing_flag.png" alt="home"></a>
+        </li>
+      </ul>
+    </div>
+    <ul id="edit-world-nav">
+      <li>
+        <a id="m-dimensions" href="javascript:RUR.we.select(&#39;set-dimensions&#39;);">World dimensions</a>
+      </li>
+      <li class="a-like"><span id="m-robot">Robot</span>
+        <ul>
+          <li class="robot-absent">
+            <a id="m-add-robot" href="javascript:RUR.we.select(&#39;robot-add&#39;);">Add robot</a>
+          </li>
+          <li class="robot-present">
+            <a id="m-position" href="javascript:RUR.we.select(&#39;robot-place&#39;);">Position(s)</a>
+          </li>
+          <li class="robot-present">
+            <a id="m-turn" href="javascript:RUR.we.select(&#39;robot-orientation&#39;);">Turn</a>
+          </li>
+          <li class="robot-present">
+            <a id="m-objects" href="javascript:RUR.we.select(&#39;robot-objects&#39;);">Objects</a>
+          </li>
+        </ul>
+      </li>
+      <li class="a-like"><span id="m-add">Add</span>
+        <ul>
+          <li>
+            <a id="m-walls" href="javascript:RUR.we.select(&#39;world-walls&#39;);">Walls</a>
+          </li>
+          <li>
+            <a id="m-objects2" href="javascript:RUR.we.select(&#39;world-objects&#39;);">Objects</a>
+          </li>
+          <li>
+            <a id="m-tiles" href="javascript:RUR.we.select(&#39;world-tiles&#39;);">Tiles</a>
+          </li>
+          <li>
+            <a id="m-fill" href="javascript:RUR.we.select(&#39;world-fill_tiles&#39;);">Fill</a>
+          </li>
+          <li>
+            <a id="m-solid" href="javascript:RUR.we.select(&#39;world-solid_objects&#39;);">Obstacles</a>
+          </li>
+          <li>
+            <a id="m-decorative" href="javascript:RUR.we.select(&#39;decorative-objects&#39;);">Decorative objects</a>
+          </li>
+          <li>
+            <a id="m-background" href="javascript:RUR.we.select(&#39;background-image&#39;);">Background image</a>
+          </li>
+        </ul>
+      </li>
+      <li class="a-like"><span id="m-goal">Goal</span>
+        <ul>
+          <li>
+            <a id="mg-robot" href="javascript:RUR.we.select(&#39;goal-robot&#39;);">Robot</a>
+          </li>
+          <li>
+            <a id="mg-walls" href="javascript:RUR.we.select(&#39;goal-wall&#39;);">Walls</a>
+          </li>
+          <li>
+            <a id="mg-objects" href="javascript:RUR.we.select(&#39;goal-objects&#39;);">Objects</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+    <!--online--><script type="text/javascript" src="./Reeborg&#39;s World_files/brython.min.js.download"></script><!--/online-->
+  <!--offline <script type="text/javascript" src="offline/brython/brython.js"></script> /offline-->
+
+  <!--online--><script type="text/javascript" src="./Reeborg&#39;s World_files/brython_stdlib.js.download"></script><!--/online-->
+  <!--offline <script type="text/javascript" src="offline/brython/brython_stdlib.js"></script> /offline-->
+
+<script type="text/javascript" src="./Reeborg&#39;s World_files/coffeescript.js.download"></script>
+<script type="text/javascript" src="./Reeborg&#39;s World_files/JSCPP.js.download"></script>
+
+  <!--offline <script type="text/javascript" src="offline/jquery-2.1.0/jquery.min.js"></script> /offline-->
+  <!--online--><script type="text/javascript" src="./Reeborg&#39;s World_files/jquery.min.js.download"></script><!--/online-->
+
+  <!--offline <script type="text/javascript" src="offline/jqueryui-1.10.4/jquery-ui.min.js"></script> /offline-->
+  <!--online--><script type="text/javascript" src="./Reeborg&#39;s World_files/jquery-ui.min.js.download"></script><!--/online-->
+
+  <!--offline <script type="text/javascript" src="offline/codemirror-5.8.0/lib/codemirror.js"></script> /offline-->
+  <!--online--><script type="text/javascript" src="./Reeborg&#39;s World_files/codemirror.min.js.download"></script><!--/online-->
+
+  <!--offline <script type="text/javascript" src="offline/codemirror-5.8.0/mode/javascript/javascript.js"></script> /offline-->
+  <!--online--><script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/javascript.min.js.download"></script><!--/online-->
+
+  <!--online--><script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/coffeescript.min.js.download"></script><!--/online-->
+
+  <!--offline <script type="text/javascript" src="offline/codemirror-5.8.0/mode/xml/xml.js"></script> /offline-->
+  <!--online--><script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/xml.min.js.download"></script><!--/online-->
+
+  <!--offline <script type="text/javascript" src="offline/codemirror-5.8.0/mode/css/css.js"></script> /offline-->
+  <!--online--><script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/css.min.js.download"></script><!--/online-->
+
+  <!--offline <script type="text/javascript" src="offline/codemirror-5.8.0/mode/htmlmixed/htmlmixed.js"></script> /offline-->
+  <!--online--><script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/htmlmixed.min.js.download"></script><!--/online-->
+
+  <!--offline <script type="text/javascript" src="offline/codemirror-5.8.0/mode/python/python.js"></script> /offline-->
+  <!--online--><script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/python.min.js.download"></script><!--/online-->
+
+  <!--offline--> <script type="text/javascript" src="./Reeborg&#39;s World_files/clike.js.download"></script> <!--/offline-->
+
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/blockly_compressed.js.download"></script>
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/blocks_compressed.js.download"></script>
+  <script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/javascript_compressed.js.download"></script>
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/en.js.download"></script>
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/fr.js.download"></script>
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/ko.js.download"></script>
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/cn.js.download"></script>
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/lt.js.download"></script>
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/pl.js.download"></script>
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/de.js.download"></script>
+  <script type="text/javascript" defer="" src="./Reeborg&#39;s World_files/python_compressed.js.download"></script>
+
+  <script type="text/javascript" src="./Reeborg&#39;s World_files/reeborg.js.download" defer=""></script>
+  <script type="text/python3" src="./Reeborg&#39;s World_files/init_reeborg.py.download"></script>
+  <script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/filesaver.js.download"></script>
+  <script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/diff_match_patch_uncompressed.js.download"></script>
+  <script>
+    TogetherJSConfig_cloneClicks = true;
+  </script>
+
+  <!--online--><script defer="" type="text/javascript" src="./Reeborg&#39;s World_files/togetherjs-min.js.download"></script><!--/online-->
+
+  
+
+  <audio id="put-sound" preload="">
+    <source src="src/sounds/toc.wav" type="audio/x-wav">
+  </audio>
+  <audio id="take-sound" preload="">
+    <source src="src/sounds/pick.wav" type="audio/x-wav">
+  </audio>
+  <audio id="write-sound" preload="">
+    <source src="src/sounds/type.wav" type="audio/x-wav">
+  </audio>
+  <audio id="move-sound" preload="">
+    <source src="src/sounds/move.wav" type="audio/x-wav">
+  </audio>
+  <audio id="turn-sound" preload="">
+    <source src="src/sounds/turn.wav" type="audio/x-wav">
+  </audio>
+  <audio id="build-sound" preload="">
+    <source src="src/sounds/brick.wav" type="audio/x-wav">
+  </audio>
+  <audio id="success-sound" preload="">
+    <source src="src/sounds/success.wav" type="audio/x-wav">
+  </audio>
+  <audio id="error-sound" preload="">
+    <source src="src/sounds/glitch-sound.wav" type="audio/x-wav">
+  </audio>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog-update-editors-from-world" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog-update-editors-from-world">Contents from World</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog-update-editors-from-world" style="" class="ui-dialog-content ui-widget-content">
+    <p id="update-blockly-content" style="display: none;"> <span id="update-blockly-content-text">This world has some default content for the blocks workspace. To replace the current blocks content, click on the button</span><br>
+      <button class="blue-gradient" id="update-blockly-content-btn">Replace existing blocks</button>
+    </p>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog-set-dimensions" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog-set-dimensions">Set the world's dimensions</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog-set-dimensions" style="" class="ui-dialog-content ui-widget-content">
+    <p id="set-dimensions-explain">If so desired, you can set the size of the world to be different from the default dimensions. Please remember that smaller resolution screens may not be able to display very large worlds.</p>
+    <form>
+      <fieldset>
+        <label for="input-max-x"><span id="input-max-x-text">Maximum x value:</span>
+          <input type="number" name="input-max-x" id="input-max-x" min="1" value="14">
+        </label>
+        <br>
+        <label for="input-max-y"><span id="input-max-y-text">Maximum y value:</span>
+          <input type="number" name="input-max-y" id="input-max-y" min="1" value="12">
+        </label>
+        <br>
+        <label for="use-small-tiles">
+          <input type="checkbox" name="use-small-tiles" id="use-small-tiles">
+          <span id="use-small-tiles-text">Use small tiles</span>
+        </label>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">OK</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog-add-object" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog-add-object">Set number of object</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog-add-object" style="" class="ui-dialog-content ui-widget-content">
+    <p><code id="add-object-name"></code> -
+      <span id="add-object-explain">Choose zero to remove any existing such object at this location. If <code>Maximum</code> is set to a value greater than the <code>Number of objects</code>, a number of objects, between these two values, will be chosen randomly each time a program is run.</span>
+    </p>
+    <form>
+      <fieldset>
+        <label for="input-add-number"><code id="number-of-objects">Number of objects:</code>
+          <input type="number" name="input-add-number" id="input-add-number" min="0" value="1">
+        </label>
+        <br>
+        <label for="maximum-number"><code id="maximum-text">Maximum:</code>
+          <input type="number" name="maximum-number" id="maximum-number" min="0" value="0">
+        </label>
+        <!-- Allow form submission with keyboard without duplicating the dialog button -->
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">OK</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog-give-object" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog-give-object">Give object to robot</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog-give-object" style="" class="ui-dialog-content ui-widget-content">
+    <p><code id="give-object-name"></code> -
+      <span id="give-object-explain">Choose a number of objects for the robot to carry. Click on the checkbox if you wish that number to be unlimited.</span>
+    </p>
+    <form>
+      <fieldset>
+        <label for="input-give-number"><code id="give-number-of-objects">Number of objects:</code>
+          <input type="number" name="input-give-number" id="input-give-number" min="0" value="1">
+        </label>
+        <br>
+        <label for="unlimited-number">
+          <input type="checkbox" name="unlimited-number" id="unlimited-number">
+          <code id="unlimited-text">Unlimited:</code></label>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">OK</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog-goal-object" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog-goal-object">Set goal number for object</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog-goal-object" style="" class="ui-dialog-content ui-widget-content">
+    <p><code id="goal-object-name"></code> - <span id="dialog-goal-object-explain">Click on the checkbox if you wish that number to be equal to the total number of such objects found in the world at the beginning.</span></p>
+    <form>
+      <fieldset>
+        <label for="input-goal-number"><code id="input-goal-number-text">Number of objects</code>:
+          <input type="number" name="input-goal-number" id="input-goal-number" min="0" value="1">
+        </label>
+        <br>
+        <label for="all-objects">
+          <input type="checkbox" name="all-objects" id="all-objects"> <span id="all-objects-text">All such objects</span>
+        </label>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">OK</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog-set-background-image" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog-set-background-image">Background image</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog-set-background-image" style="" class="ui-dialog-content ui-widget-content">
+    <form>
+      <fieldset>
+        <label for="image-url">URL:
+          <input type="text" name="image-url" id="image-url">
+        </label>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">OK</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog-select-colour" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog-select-colour">Enter a colour</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog-select-colour" style="" class="ui-dialog-content ui-widget-content">
+    <form>
+      <fieldset>
+        <label for="colour-selection"><span id="color-selection-text">Colour:</span>&nbsp;
+          <input type="color" name="colour-selection" id="colour-selection">
+        </label>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">OK</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable concludes" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-Reeborg-success" style="display: none; outline: 0px; position: absolute; height: auto; width: 500px; top: 268px; left: 650px; z-index: 1018;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-Reeborg-success">Reeborg says: I'm done!</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="Reeborg-success" class="reeborg-print ui-dialog-content ui-widget-content" style="width: auto; min-height: 0px; height: 86.6px;" scrolltop="0" scrollleft="0"><ul><li class="success">Reeborg is at the correct x position.</li><li class="success">Reeborg is at the correct y position.</li></ul></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable alert" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-Reeborg-failure" style="display: none; outline: 0px; position: absolute; z-index: 1006; top: 269px; left: 650px; height: auto; width: 500px;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-Reeborg-failure">Reeborg shouts: Something is wrong!</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="Reeborg-failure" class="reeborg-print ui-dialog-content ui-widget-content" style="width: auto; min-height: 0px; height: 87.6px;" scrolltop="0" scrollleft="0"></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-Reeborg-writes" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-Reeborg-writes">Reeborg writes:</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="Reeborg-writes" style="" class="ui-dialog-content ui-widget-content">
+      <pre id="stdout" class="reeborg-print"></pre>
+    </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-Reeborg-explores" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-Reeborg-explores">Reeborg explores some Javascript code</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="Reeborg-explores" style="" class="ui-dialog-content ui-widget-content"></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all proclaims ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-Reeborg-proclaims" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-Reeborg-proclaims">Reeborg states:</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="Reeborg-proclaims" style="" class="ui-dialog-content ui-widget-content">
+      <div id="print-html"></div>
+    </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all watches ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-Reeborg-watches" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-Reeborg-watches">Reeborg watches some variables!</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="Reeborg-watches" class="reeborg-print ui-dialog-content ui-widget-content" style="">
+      <div id="watch-variables"></div>
+    </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog-save-world" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog-save-world">Save world in browser</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog-save-world" style="" class="ui-dialog-content ui-widget-content">
+    <p id="existing-world-names"></p>
+    <form>
+      <fieldset>
+        <label for="world-name"><span id="browser-world-name"></span>
+          <input type="text" name="world-name" id="world-name">
+        </label>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">OK</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Cancel</span></button></div></div></div><span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-World-info" style="display: none; outline: 0px; position: absolute; height: auto; width: 800px; top: 46px; left: 366px; z-index: 1002;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-World-info">Click on the world to get some additional information.</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-minimize ui-corner-all" role="button"><span class="ui-icon ui-icon-minusthick">minimize</span></a><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="World-info" style="width: auto; min-height: 0px; height: 534.6px;" class="ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0"><div class="automatic-description">
+<h1>Lost in a maze</h1>
+<p>Reeborg was exploring a dark maze and the battery in its flashlight ran out.</p>
+<p>Write a program using an <code>if/elif/else</code> statement so Reeborg can find the exit. 
+The secret is to have Reeborg follow along the right edge of the maze, 
+turning right if it can, going straight ahead if it 
+can’t turn right, or turning left as a last resort.</p>
+<h3>What you need to know</h3>
+<ul><li>The functions <code>move()</code> and <code>turn_left()</code>.</li>
+<li>Either the test <code>front_is_clear()</code> or <code>wall_in_front()</code>,
+<code>right_is_clear()</code> or <code>wall_on_right()</code>, and <code>at_goal()</code>.</li>
+<li>How to use a <code>while</code> loop and <code>if/elif/else</code> statements.</li>
+<li>It might be useful to know how to use the negation of a test (<code>not</code> in Python).</li></ul>
+<h3>Difficulty level</h3><div class="difficulty"><img src="./Reeborg&#39;s World_files/transparent_robot.png" class="difficulty1"><img src="./Reeborg&#39;s World_files/transparent_robot.png" class="difficulty2"><img src="./Reeborg&#39;s World_files/transparent_robot.png" class="difficulty3"><img src="./Reeborg&#39;s World_files/transparent_robot.png" class="difficulty4"><img src="./Reeborg&#39;s World_files/transparent_robot.png"><img src="./Reeborg&#39;s World_files/transparent_robot.png"><img src="./Reeborg&#39;s World_files/transparent_robot.png"><img src="./Reeborg&#39;s World_files/transparent_robot.png"><img src="./Reeborg&#39;s World_files/transparent_robot.png"><img src="./Reeborg&#39;s World_files/transparent_robot.png"></div>
+</div><br><b>A robot located at (x, y) = (2, 1) carries no objects.</b><h3>Goal to achieve:</h3>The final position of the robot must be (x, y) = (6, 4)</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="blocklyWidgetDiv"></div><div class="blocklyTooltipDiv"></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-special-keyboard" style="display: none; outline: 0px; position: absolute; height: auto; width: 750px; top: 146px; left: 0px; z-index: 1016;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-special-keyboard">Reeborg's basic keyboard</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-minimize ui-corner-all" role="button"><span class="ui-icon ui-icon-minusthick">minimize</span></a><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="special-keyboard" style="width: auto; min-height: 0px; height: 334.6px;" class="ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0">
+    <div id="keyboard-buttons">
+      <button id="kbd-command-btn" class="active-element" fdprocessedid="yf6607">Commands</button>
+      <button id="kbd-condition-btn" class="blue-gradient" fdprocessedid="540bu">Conditions</button>
+      <button id="kbd-python-btn" class="blue-gradient" fdprocessedid="nl8cp" style="display: inline-block;">Python</button>
+      <button id="kbd-py-console-btn" class="blue-gradient" style="display: none;">Python</button>
+      <button id="kbd-javascript-btn" class="blue-gradient" style="display: none;">Javascript</button>
+      <button id="kbd-coffee-btn" class="blue-gradient" style="display: none;">CoffeeScript</button>
+      <button id="kbd-cpp-btn" class="blue-gradient" style="display: none;">C++</button>
+      <button id="kbd-objects-btn" class="blue-gradient" fdprocessedid="s2xm06">Objects</button>
+      <button id="kbd-special-btn" class="blue-gradient" fdprocessedid="orun2k">Special</button>
+      <ul class="kbd-command" style="display: block;">
+        <li id="kbd-move">move()</li>
+        <li id="kbd-turn-left">turn_left()</li>
+        <li id="kbd-take">take()</li>
+        <li id="kbd-put">put()</li>
+        <li id="kbd-toss">toss()</li>
+        <li id="kbd-build-wall">build_wall()</li>
+        <li id="kbd-pause" class="no-console kbd-command" style="display: inline-block;">pause()</li>
+        <li id="kbd-done">done()</li>
+        <li id="kbd-think" class="no-console kbd-command" style="display: inline-block;">think(100)</li>
+        <li id="kbd-sound" class="only_py no-console kbd-command" style="display: inline-block;">sound(True)</li>
+        <li id="kbd-sound-js" class="only_js kbd-command" style="display: none;">sound(true)</li>
+        <li id="kbd-world">World()</li>
+        <li id="kbd-UsedRobot" class="only_py kbd-command" style="display: inline-block;">UsedRobot()</li>
+        <li id="kbd-newUsedRobot" class="only_js kbd-command" style="display: none;">new UsedRobot()</li>
+        <li id="kbd-no-highlight" class="only_py no-console kbd-command" style="display: inline-block;">no_highlight()</li>
+      </ul>
+      <ul class="kbd-condition" style="display: none;">
+        <li id="kbd-at-goal">at_goal()</li>
+        <li id="kbd-front-is-clear">front_is_clear()</li>
+        <li id="kbd-right-is-clear">right_is_clear()</li>
+        <li id="kbd-wall-in-front">wall_in_front()</li>
+        <li id="kbd-wall-on-right">wall_on_right()</li>
+        <li id="kbd-object-here">object_here()</li>
+        <li id="kbd-carries-object">carries_object()</li>
+        <li id="kbd-is-facing-north">is_facing_north()</li>
+      </ul>
+      <ul class="kbd-python" style="display: none;">
+        <li id="kbd-py-def">def ? ( ):</li>
+        <li id="kbd-py-if">if ? :</li>
+        <li id="kbd-py-elif">elif ? :</li>
+        <li id="kbd-py-else">else:</li>
+        <li id="kbd-py-while">while ? :</li>
+        <li id="kbd-py-repeat">repeat ? :</li>
+        <li id="kbd-py-library">from library import ?</li>
+        <li id="kbd-py-for">for ? in ? :</li>
+        <li id="kbd-py-print">print()</li>
+        <li id="kbd-py-range">range(?)</li>
+        <li id="kbd-py-true">True</li>
+        <li id="kbd-py-false">False</li>
+        <li id="kbd-py-none">None</li>
+        <li id="kbd-py-not">not</li>
+        <li id="kbd-py-and">and</li>
+        <li id="kbd-py-or">or</li>
+        <li id="kbd-py-continue">continue</li>
+        <li id="kbd-py-break">break</li>
+        <li id="kbd-py-return">return ?</li>
+        <li id="kbd-py-pass">pass</li>
+        <br>
+        <span id="kbd-repeat-not-keyword"><code>repeat</code> is not a true Python keyword.</span>
+      </ul>
+      <ul class="kbd-py-console" style="display: none;">
+        <li id="kbd-pyrepl-def">def </li>
+        <li id="kbd-pyrepl-if">if </li>
+        <li id="kbd-pyrepl-elif">elif </li>
+        <li id="kbd-pyrepl-else">else:</li>
+        <li id="kbd-pyrepl-while">while </li>
+        <li id="kbd-pyrepl-library">from library import ?</li>
+        <li id="kbd-pyrepl-for">for </li>
+        <li id="kbd-pyrepl-in">in </li>
+        <li id="kbd-pyrepl-print">print(</li>
+        <li id="kbd-pyrepl-range">range(</li>
+        <li id="kbd-pyrepl-true">True</li>
+        <li id="kbd-pyrepl-false">False</li>
+        <li id="kbd-pyrepl-none">None</li>
+        <li id="kbd-pyrepl-not">not</li>
+        <li id="kbd-pyrepl-and">and</li>
+        <li id="kbd-pyrepl-or">or</li>
+        <li id="kbd-pyrepl-continue">continue</li>
+        <li id="kbd-pyrepl-break">break</li>
+        <li id="kbd-pyrepl-return">return</li>
+        <li id="kbd-pyrepl-pass">pass</li>
+      </ul>
+      <ul class="kbd-javascript" style="display: none;">
+        <li id="kbd-js-var">var </li>
+        <li id="kbd-js-function">function ? { 
+
+}</li>
+        <li id="kbd-js-if">if ( ? ) { 
+
+}</li>
+        <li id="kbd-js-elif">else if ( ? ) { 
+
+}</li>
+        <li id="kbd-js-else">else { 
+
+}</li>
+        <li id="kbd-js-while">while ( ? ) { 
+
+}</li>
+        <li id="kbd-js-for">for (? ; ? ; ?) { 
+
+}</li>
+        <li id="kbd-js-true">true</li>
+        <li id="kbd-js-false">false</li>
+        <li id="kbd-js-write">write()</li>
+        <li id="kbd-js-return">return</li>
+        <li id="kbd-js-undefined">undefined</li>
+        <li id="kbd-js-not">!</li>
+        <li id="kbd-js-and">&amp;&amp;</li>
+        <li id="kbd-js-or">||</li>
+        <li id="kbd-js-continue">continue</li>
+        <li id="kbd-js-break">break</li>
+      </ul>
+      <ul class="kbd-coffee" style="display: none;">
+        <li id="kbd-coffee-function">? = ( ) -&gt;</li>
+        <li id="kbd-coffee-if">if ?</li>
+        <li id="kbd-coffee-else">else</li>
+        <li id="kbd-coffee-ternary">? = ? if ?</li>
+        <li id="kbd-coffee-while">while ?</li>
+        <li id="kbd-coffee-for">? = ? for ? in [?..?] by ?</li>
+        <li id="kbd-coffee-true">true</li>
+        <li id="kbd-coffee-false">false</li>
+        <li id="kbd-coffee-write">write()</li>
+        <li id="kbd-coffee-undefined">variable?</li>
+        <li id="kbd-coffee-not">not</li>
+        <li id="kbd-coffee-and">and</li>
+        <li id="kbd-coffee-or">or</li>
+        <li id="kbd-coffee-continue">continue</li>
+        <li id="kbd-coffee-break">break</li>
+      </ul>
+      <ul class="kbd-cpp" style="display: none;">
+        <li id="kbd-cpp-boiler">#include &lt;reeborg&gt;
+
+int main() {
+
+    return 0;
+}</li>
+        <li id="kbd-cpp-include">#include &lt;?&gt;</li>
+        <li id="kbd-cpp-include-reeborg">#include &lt;reeborg&gt;</li>
+        <li id="kbd-cpp-int">int </li>
+        <li id="kbd-cpp-double">double </li>
+        <li id="kbd-cpp-string">string </li>
+        <li id="kbd-cpp-bool">bool </li>
+        <li id="kbd-cpp-function">? function ? { 
+
+}</li>
+        <li id="kbd-cpp-if">if ( ? ) { 
+
+}</li>
+        <li id="kbd-cpp-else">else { 
+
+}</li>
+        <li id="kbd-cpp-while">while ( ? ) { 
+
+}</li>
+        <li id="kbd-cpp-for">for (? ; ? ; ?) { 
+
+}</li>
+        <li id="kbd-cpp-true">true</li>
+        <li id="kbd-cpp-false">false</li>
+        <li id="kbd-cpp-write">cout &lt;&lt; ?;</li>
+        <li id="kbd-cpp-return">return ?;</li>
+        <li id="kbd-cpp-not">!</li>
+        <li id="kbd-cpp-and">&amp;&amp;</li>
+        <li id="kbd-cpp-or">||</li>
+        <li id="kbd-cpp-continue">continue;</li>
+        <li id="kbd-cpp-break">break;</li>
+      </ul>
+      <ul class="kbd-objects" style="display: none;">
+        <li id="kbd-token"><img src="./Reeborg&#39;s World_files/token.png"></li>
+        <li id="kbd-apple"><img src="./Reeborg&#39;s World_files/apple.png"></li>
+        <li id="kbd-banana"><img src="./Reeborg&#39;s World_files/banana.png"></li>
+        <li id="kbd-carrot"><img src="./Reeborg&#39;s World_files/carrot.png"></li>
+        <li id="kbd-daisy"><img src="./Reeborg&#39;s World_files/daisy.png"></li>
+        <li id="kbd-dandelion"><img src="./Reeborg&#39;s World_files/dandelion.png"></li>
+        <li id="kbd-leaf"><img src="./Reeborg&#39;s World_files/leaf.png"></li>
+        <li id="kbd-square"><img src="./Reeborg&#39;s World_files/square.png"></li>
+        <li id="kbd-star"><img src="./Reeborg&#39;s World_files/star.png"></li>
+        <li id="kbd-strawberry"><img src="./Reeborg&#39;s World_files/strawberry.png"></li>
+        <li id="kbd-triangle"><img src="./Reeborg&#39;s World_files/triangle.png"></li>
+        <li id="kbd-tulip"><img src="./Reeborg&#39;s World_files/tulip.png"></li>
+        <li id="kbd-beeper"><img src="./Reeborg&#39;s World_files/beeper2.png"></li>
+      </ul>
+      <ul class="kbd-special" style="display: none;">
+        <li id="kbd-colon">:</li>
+        <li id="kbd-semi-colon">;</li>
+        <li id="kbd-sharp">#</li>
+        <li id="kbd-double-quote">"</li>
+        <li id="kbd-single-quote">'</li>
+        <li id="kbd-equal">=</li>
+        <li id="kbd-less-than">&lt;</li>
+        <li id="kbd-greater-than">&gt;</li>
+        <li id="kbd-ampersand">&amp;</li>
+        <li id="kbd-vertical-bar">|</li>
+        <li id="kbd-parens">( )</li>
+        <li id="kbd-curly-brackets">{ }</li>
+        <li id="kbd-square-brackets">[ ]</li>
+        <li id="kbd-tab">TAB</li>
+        <li id="kbd-shift-tab" class="no-console kbd-special" style="display: none;">Shift-TAB</li>
+        <li id="kbd-enter">⏎</li>
+      </ul>
+      <button id="kbd-undo" class="blue-gradient" fdprocessedid="mas9mp" style="display: inline-block;">UNDO</button>
+      <button id="kbd-redo" class="blue-gradient" fdprocessedid="z6exjd" style="display: inline-block;">REDO</button>
+    </div>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-more-menus" style="display: none; outline: 0px; position: absolute; height: auto; width: 800px; top: 0px; left: 358px; z-index: 1012;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-more-menus">Additional options</span><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-minimize ui-corner-all" role="button"><span class="ui-icon ui-icon-minusthick">minimize</span></a><a href="https://reeborg.ca/reeborg.html?lang=en&amp;mode=python&amp;menu=worlds%2Fmenus%2Freeborg_intro_en.json&amp;name=Maze&amp;url=worlds%2Ftutorial_en%2Fmaze1.json#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="more-menus" style="width: auto; min-height: 0px; height: 634.6px;" class="ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0">
+    <h3 id="help">Help</h3>
+    <ul>
+      <li id="documentation"><a href="http://reeborg.ca/docs/en" target="_blank" rel="noopener">Documentation</a></li>
+      <li><a href="https://www.reddit.com/r/reeborg"><span id="forum">Discussion forum (English/French only)</span></a></li>
+      <li id="python-help">Using Python, execute a program with <code>help()</code> to get a list of commands or <code>help(move)</code> to get help on the <code>move()</code> function, etc.</li>
+      <li id="keyboard-help">Click on Reeborg keyboard to see a list of available commands, Python keywords, etc.</li>
+      <li><a href="https://github.com/aroberge/reeborg/issues"><span id="issues">Bug reports, suggestions, other issues, etc. (English/French only)</span></a></li>
+      <li><span id="contact">(English/French only) Email:</span> <a href="mailto:andre.roberge@gmail.com">André Roberge</a></li>
+    </ul>
+    <hr>
+    <h3 id="world-title">World: creation, edition, ...</h3>
+    <p>
+      <button class="blue-gradient" id="edit-world" fdprocessedid="ialfio">Edit world</button>
+      <span id="edit-world-text">You can create your own world by editing the current one.</span>
+    </p>
+    <p>
+      </p><form id="save-world-form">
+          <label><input type="text" class="filename" id="world-filename" placeholder="world" fdprocessedid="wmirdf">.json</label>
+          <input type="submit" value="Save world to file" id="save-world" class="blue-gradient" fdprocessedid="jmecoo">
+      </form>
+      <span id="save-world-text">Saves the world (as a json object) to a file on your computer. <b>Mac users:</b> please see <a href="https://github.com/aroberge/reeborg/blob/master/dev_tools/known_problems.md" target="_blank" rel="noopener">Known problems</a>.</span>
+    <p></p>
+    <p>
+      <button class="blue-gradient" id="load-world" fdprocessedid="30vmoo">Open world from file</button>
+      <span id="load-world-text">Loads a world from a file on your computer.</span>
+    </p>
+    <div id="delete-world" style="display:none;">
+      <h3 id="delete-world-text">The following refers to worlds currently stored in your browser which you can delete:</h3>
+    </div>
+    <hr>
+    <h3 id="progress-section">Keeping track of tasks solved</h3>
+    <p><span id="progress-explain">Tasks solved are marked with  ✓🤖in the world selector and the information is saved in your browser. If you use a different browser, the tasks you have already solved using a different browser will not be shown. If you click on the save button below, a file named progress.json will be saved with the tasks solved recorded in the current browser. You can import this file in a different browser so that your progress can be updated.</span></p>
+      <button id="save-progress-btn" class="blue-gradient" fdprocessedid="ay4p1x">Save</button>
+      <button id="import-progress-btn" class="blue-gradient" fdprocessedid="732ne">Import</button><br><br>
+      <button id="retrieve-solution-btn" class="blue-gradient" fdprocessedid="70814s">Retrieve solution</button>
+      <span id="retrieve-solution-explain">If a solution (blocks, or code and possibly code in library) for this world has been saved in the browser for the current programming mode, it will be retrieved and replace the current content.</span>
+    <hr>
+    <h3 id="program-in-editor">Program in editor</h3>
+    <p>
+      </p><form id="save-editor-form">
+          <label><input type="text" class="filename" id="editor-filename" placeholder="program" fdprocessedid="tpdz2k">
+            <span class="only_js" style="display: none;">.js</span>
+            <span class="only_py">.py</span>
+          </label>
+          <input type="submit" value="Save program to file" id="save-editor" class="blue-gradient" fdprocessedid="zyoutf">
+      </form>
+      <span id="save-editor-text">Saves the content of the editor in a file. <b>Mac users:</b> please see <a href="https://github.com/aroberge/reeborg/blob/master/dev_tools/known_problems.md" target="_blank" rel="noopener">Known problems</a>.</span>
+    <p></p>
+    <p>
+      <button class="blue-gradient" id="load-editor-btn" fdprocessedid="oz0yvg">Import program from file</button>
+      <span id="load-editor-text">Opens a local file and use its content to replace the content of the Code editor.</span>
+    </p>
+    <hr>
+    <h3 id="program-in-blockly-workspace">Program in blockly workspace</h3>
+    <p>
+      </p><form id="save-blockly-form">
+          <label><input type="text" class="filename" id="blockly-filename" placeholder="program" fdprocessedid="u6u6rq">.xml</label>
+          <input type="submit" value="Save program to file" id="save-blockly" class="blue-gradient" fdprocessedid="n8ukzh">
+      </form>
+      <span id="save-blockly-text">Saves the current blocks in a file. <b>Mac users:</b> please see <a href="https://github.com/aroberge/reeborg/blob/master/dev_tools/known_problems.md" target="_blank" rel="noopener">Known problems</a>.</span>
+    <p></p>
+    <p>
+      <button class="blue-gradient" id="load-blockly-btn" fdprocessedid="8w5498">Import program (blocks) from file</button>
+      <span id="load-blockly-text">Opens a local file and use its content to replace the content of the Blockly workspace.</span>
+    </p>
+    <hr>
+
+    <!--online--><p><button id="togetherjs" class="blue-gradient" onclick="TogetherJS(this); return false;" fdprocessedid="qj46ag">Collaboration</button><!--/online-->
+    <!--online--><span id="togetherjs-text">Tool which permits collaboration with one or more other user using Mozilla's TogetherJS. Does not work with Blockly.</span></p><hr><!--/online-->
+    <!--offline Offline version: TogetherJS disabled. /offline-->
+
+    <h3 id="python-only">Python only</h3>
+    <div id="python-additional-menu">
+      <p>
+        </p><form id="save-library-form">
+            <label><input type="text" class="filename" id="library-filename" placeholder="lib" fdprocessedid="xg4aw">.py</label>
+            <input type="submit" value="Save the library" id="save-library" class="blue-gradient" fdprocessedid="o46gmn">
+        </form>
+        <span id="save-library-text">Saves the content of the library in a file. <b>Mac users:</b> please see <a href="https://github.com/aroberge/reeborg/blob/master/dev_tools/known_problems.md" target="_blank" rel="noopener">Known problems</a>.</span>
+      <p></p>
+        <button class="blue-gradient" id="load-library-btn" fdprocessedid="pyb2l">Import library from a file</button>
+        <span id="load-library-text">Opens a file and use its content to replace the current content of the Library.</span>
+      <p></p>
+      <button onclick="RUR.reveal_extra()" class="blue-gradient" fdprocessedid="d58sw5">Update extra</button><br>
+      <div id="extra-styled"></div>
+    </div>
+  </div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><span id="PING_CONTENT_DLS_POPUP" style="display: none;"></span><div style="background-color: transparent; border: none; bottom: 15px; display: block; margin: 0px; opacity: 1; padding: 0px; position: fixed; right: 15px; z-index: 2147483647;"><template shadowrootmode="closed"><style>/*!
+ * 
+ *     MCAFEE RESTRICTED CONFIDENTIAL
+ *     Copyright (c) 2024 McAfee, LLC
+ *
+ *     The source code contained or described herein and all documents related
+ *     to the source code ("Material") are owned by McAfee or its
+ *     suppliers or licensors. Title to the Material remains with McAfee
+ *     or its suppliers and licensors. The Material contains trade
+ *     secrets and proprietary and confidential information of McAfee or its
+ *     suppliers and licensors. The Material is protected by worldwide copyright
+ *     and trade secret laws and treaty provisions. No part of the Material may
+ *     be used, copied, reproduced, modified, published, uploaded, posted,
+ *     transmitted, distributed, or disclosed in any way without McAfee's prior
+ *     express written permission.
+ *
+ *     No license under any patent, copyright, trade secret or other intellectual
+ *     property right is granted to or conferred upon you by disclosure or
+ *     delivery of the Materials, either expressly, by implication, inducement,
+ *     estoppel or otherwise. Any license under such intellectual property rights
+ *     must be expressed and approved by McAfee in writing.
+ *
+ */
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,400;0,500;0,600;0,800;1,400;1,500;1,600;1,800&display=swap);
+*{border:0;box-sizing:border-box;font:inherit;font-family:"mcafeeOpenSans","Poppins",Helvetica,Arial,Arial,Helvetica,sans-serif;font-size:100%;margin:0;padding:0;vertical-align:baseline;outline:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}html,body{background-color:#f5f6fa;font-family:"Poppins",Helvetica,Arial,"mcafeeOpenSans",Arial,Helvetica,sans-serif;line-height:1;height:100%;width:100%}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}b{font-weight:bold}img{display:block}.dls__container{align-items:center;display:flex;margin:0 auto;margin-top:50px;position:relative}.dls__popup__expanded{align-items:center;overflow:hidden;border-radius:100px;cursor:pointer;display:flex;left:0;padding:15px;position:absolute;height:95px;width:383px;background-color:#fff;transition:all .3s ease-in-out}.dls__popup__expanded .dls__icon{height:65px;width:73px}.content{margin-left:12px}.content .content__images{display:flex;align-items:center;width:250px}.content .content__images .seperator__line{margin-left:5px;margin-right:10px}.content .content__images #dls_close_icon{cursor:pointer;margin-left:auto;margin-right:0px}.content p{font-family:"Poppins",Arial,Helvetica,sans-serif;font-weight:"400";font-size:14px;line-height:20px;margin-top:8px;color:#4258ff;width:250px;cursor:pointer}.shield{overflow:hidden;box-shadow:0px 2px 4px 0px rgba(33,41,52,.12),0px -1px 2px 0px rgba(0,0,0,.08);align-items:center;border-radius:100px;bottom:0;display:flex;height:95px;justify-content:center;position:absolute;right:0;width:383px;transition:all .3s ease-in-out}.shield__circle{display:flex;justify-content:center;align-items:center;width:55px;height:55px;background-color:#c01818;transition:all .6s ease-in-out .2s;z-index:1;opacity:0}
+
+/*# sourceMappingURL=../sourceMap/chrome/css/download_scan_popup.css.map*/</style><div class="dls__container">
+  <div class="shield" style="background: transparent; opacity: 0.1; display: none;">
+    <div class="shield__circle" style="opacity: 1;">
+      <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/mcafee_logo_white.svg?secret=hzwbxw" x-mcsrc="" id="dls_ballon_icon" x-mcsrcparsed="true">
+    </div>
+    <div class="dls__popup__expanded" style="opacity: 0;">
+      <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/download_scan_icon.svg?secret=hzwbxw" x-mcsrc="" class="dls__icon" x-mcsrcparsed="true">
+      <div class="content">
+        <div class="content__images">
+          <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/mcafee_logo_red.svg?secret=hzwbxw" x-mcsrc="" id="dls_mcafee_logo" x-mcsrcparsed="true">
+          <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/seperator_line.svg?secret=hzwbxw" x-mcsrc="" class="seperator__line" x-mcsrcparsed="true">
+          <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/webadvisor.svg?secret=hzwbxw" x-mcsrc="" x-mcsrcparsed="true">
+          <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/close-outline.svg?secret=hzwbxw" x-mcsrc="" id="dls_close_icon" x-mcsrcparsed="true">
+        </div>
+        <p id="download_scan_popup_expanded_descriptions">Your download's being scanned. We'll let you know if there's an issue.</p>
+      </div>
+    </div>
+  </div>
+</div><style>/*!
+ * 
+ *     MCAFEE RESTRICTED CONFIDENTIAL
+ *     Copyright (c) 2024 McAfee, LLC
+ *
+ *     The source code contained or described herein and all documents related
+ *     to the source code ("Material") are owned by McAfee or its
+ *     suppliers or licensors. Title to the Material remains with McAfee
+ *     or its suppliers and licensors. The Material contains trade
+ *     secrets and proprietary and confidential information of McAfee or its
+ *     suppliers and licensors. The Material is protected by worldwide copyright
+ *     and trade secret laws and treaty provisions. No part of the Material may
+ *     be used, copied, reproduced, modified, published, uploaded, posted,
+ *     transmitted, distributed, or disclosed in any way without McAfee's prior
+ *     express written permission.
+ *
+ *     No license under any patent, copyright, trade secret or other intellectual
+ *     property right is granted to or conferred upon you by disclosure or
+ *     delivery of the Materials, either expressly, by implication, inducement,
+ *     estoppel or otherwise. Any license under such intellectual property rights
+ *     must be expressed and approved by McAfee in writing.
+ *
+ */
+.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}
+
+/*# sourceMappingURL=../sourceMap/chrome/css/interactive_balloon.css.map*/</style></template></div></body></html>

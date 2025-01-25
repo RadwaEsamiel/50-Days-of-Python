@@ -1,0 +1,38 @@
+h1 {
+    font-size: 25px;
+    color: black;
+}
+
+h2 {
+    font-size: 20px;
+    color: black;
+}
+
+.color-title {
+    font-weight: normal;
+}
+
+#red {
+    color: red;
+}
+
+#blue {
+    color: blue;
+}
+
+#orange {
+    color: orange;
+}
+
+#green {
+    color: green;
+}
+
+#yellow {
+    color: gold;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
